@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  background-image: linear-gradient(rgba(5, 60, 158, 0.8), rgb(136 206 187 / 70%)), url('https://images.unsplash.com/photo-1548092372-0d1bd40894a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  height: 92vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+#message {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  font-weight: bold;
+}
+
+#message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+#message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+div{
+   margin-top: 20px; 
+}
+
+span{
+    color: red;
+}
+
+form {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+input {
+  margin: 0;
+  width: 100%;
+  min-height: 2em;
+  padding: 5px;
+}
+
+input[type='checkbox'] {
+  width: auto;
+  min-width: 15px;
+  min-height: 15px;
+  vertical-align: middle;
+}
+
+.submit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button{
+    font-size: 150%;
+}
