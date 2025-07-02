@@ -5,12 +5,18 @@ $(document).ready(function () {
     return regex.test(email);
   }
 
-  // Password validation
+  // Password validation: 8–15 characters, 1 uppercase, 1 lowercase, 1 digit, 1 special character
   function isStrongPassword(password) {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,15}$/;
     return regex.test(password);
   }
-  
+
+  // Allow only digits in phone field
+  $('#phone').on('input', function () {
+    this.value = this.value.replace(/\D/g, ''); // Replace non-digits with empty
+  });
+
+  // Form submission
   $('#validationForm').on('submit', function (e) {
     e.preventDefault();
     $('#message').hide().removeClass('error success').html('');
@@ -40,7 +46,7 @@ $(document).ready(function () {
     }
 
     if (password && !isStrongPassword(password)) {
-      errorText += 'Password must be at least 6 characters with uppercase, lowercase, and a number.<br>';
+      errorText += 'Password must be 8–15 characters with uppercase, lowercase, digit, and special character.<br>';
       hasError = true;
     }
 
@@ -55,7 +61,8 @@ $(document).ready(function () {
       $('#message').addClass('success').html('Form submitted successfully!').slideDown();
     }
   });
-    // Show/hide password
+
+  // Show/hide password
   $('#togglePassword').on('change', function () {
     const type = this.checked ? 'text' : 'password';
     $('#password, #confirm-password').attr('type', type);
